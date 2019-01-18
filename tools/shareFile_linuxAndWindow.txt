@@ -1,0 +1,1 @@
+sudo mount -t cifs //本地ip/windows共享文件 /home/xxx/xxx(远程目录) -o user=用户名,pass=密码,iocharset=utf8,file_mode=0777,dir_mode=0777,nounix,noserverino
