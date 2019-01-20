@@ -15,12 +15,14 @@ JavaproType=maven-archetype-quickstart
 WebproType=maven-archetype-webapp
 typeGroupId=org.apache.maven.archetypes
 
-JAVA_PRO_PARAM="-DarchetypeArtifactId=$JavaproType"
-WEB_PRO_PARAM="-DarchetypeGroupId=$typeGroupId -DarchetypeArtifactId=$WebproType"
+if [ $projectType == 1 ];then
 
-PARAM=$(( $projectType == 0 ? JAVA_PRO_PARAM : WEB_PRO_PARAM ))
+	mvn archetype:generate -DgroupId=$packageName -DartifactId=$projectName -DarchetypeGroupId=$typeGroupId -DarchetypeArtifactId=$WebproType -DarchetypeVersion=1.4 -DinteractiveMode=false
 
-mvn archetype:generate -DgroupId=$packageName -DartifactId=$projectName $PARAM -DarchetypeVersion=1.4 -DinteractiveMode=false
+else
+
+	mvn archetype:generate -DgroupId=$packageName -DartifactId=$projectName -DarchetypeArtifactId=$JavaproType -DarchetypeVersion=1.4 -DinteractiveMode=false
+fi
 
 if [ 0 -eq 1 ];then
 
