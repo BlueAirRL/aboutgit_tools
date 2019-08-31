@@ -136,3 +136,22 @@ su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty main' > /et
 	 
 	 修改完代码后，使用git status可以查看文件的差别；使用git add 添加要commit的文件，也可以用git add -i来智能添加文件，git add -A添加所有文件；之后使用git commit提交本次修改；最后使用git push上传到github。
 	 "''"
+	 
+	 
+解决github - Git push: username, password, how to avoid?	 
+git push 文件到git仓库时，避免每次都需要用户名和密码
+
+Set your remote URL to a form that supports SSH 1
+If you have done the steps above and are still getting the password prompt, make sure your repo URL is in the form
+
+git+ssh://git@github.com/username/reponame.git
+as opposed to
+
+https://github.com/username/reponame.git
+To see your repo URL, run:
+
+git remote show origin
+You can change the URL with:
+
+git remote set-url origin git+ssh://git@github.com/username/reponame.git	 
+	 
